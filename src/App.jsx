@@ -1,5 +1,5 @@
-import {useState } from 'react';
-import { Routes, Route} from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Cards from './components/Cards/Cards.jsx';
 import NavBar from './components/Navbar/NavBar.jsx';
@@ -12,9 +12,18 @@ import Error404 from './components/Error404/Error404.jsx';
 
 
 function App() {
+  //Localiza donde esta parado el cliente 
+  const location = useLocation()
 
+  //Setea los personajes
   const [characters, setCharacters] = useState([])
-
+  
+  //Login
+  const [access, setAccess] = useState(false)
+  const EMAIL = 'agusasaad1099@hotmail.com';
+  const PASSWORD = 'Henry123@'
+  const Navigate = useNavigate()
+  
   //Lamada a la Api Rick AND Morty
   const onSearch = (id) => {
     const characterId = characters.filter(
@@ -57,15 +66,32 @@ function App() {
     )
   }
 
+
+
+  //funcion login 
+  function login(userData) {
+    if (userData.email === EMAIL && userData.password === PASSWORD) {
+      setAccess(true);
+      Navigate('/home');
+    }
+  }
+
+  useEffect(() => {
+    !access && Navigate('/');
+  }, [access]);
+
+
+
   return (
     <div className='App'>
-      <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />
+
+      {location.pathname !== '/' && <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />}
       <Routes>
-        <Route path='/home' element={<Cards onClose={onClose} characters={characters}/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/detail/:id' element={<Detail/>}/>
-        <Route path='/form' element={<Form/>}/>
-        <Route path='*' element={<Error404/>}/>
+        <Route path='/' element={<Form login={login} />} />
+        <Route path='/home' element={<Cards onClose={onClose} characters={characters} />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/detail/:id' element={<Detail />} />
+        <Route path='*' element={<Error404 />} />
       </Routes>
     </div>
   );
