@@ -7,6 +7,10 @@ import Detail from './components/Detail/Detail.jsx';
 import About from './components/About/About.jsx';
 import Form from './components/Form/Form.jsx';
 import Error404 from './components/Error404/Error404.jsx';
+import Favorites from './components/Favorites/Favorites.jsx';
+import { useDispatch } from 'react-redux';
+import { remove_fav } from './components/Redux/action.js';
+import ButtonRamdom from './components/ButtonRamdom/ButtonRamdom.jsx';
 
 
 
@@ -21,7 +25,7 @@ function App() {
   //Login
   const [access, setAccess] = useState(false)
   const EMAIL = 'agusasaad1099@hotmail.com';
-  const PASSWORD = 'Henry123@'
+  const PASSWORD = '123123'
   const Navigate = useNavigate()
   
   //Lamada a la Api Rick AND Morty
@@ -57,14 +61,13 @@ function App() {
       );
   }
 
-  //Borra la Card por ID
+  //Borra la Card por ID 'x'
+  const dispatch = useDispatch()
   const onClose = (id) => {
     setCharacters(
-      characters?.filter((character) => {
-        return character.id !== parseInt(id)
-      })
-    )
-  }
+      characters?.filter((character) => {return character.id !== parseInt(id)}))
+      dispatch(remove_fav(id))
+    }
 
 
 
@@ -86,7 +89,9 @@ function App() {
     <div className='App'>
 
       {location.pathname !== '/' && <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />}
+      {location.pathname === '/home' && <ButtonRamdom characterRamdom={characterRamdom}/>}
       <Routes>
+        <Route path='/favorites' element={<Favorites onClose={onClose} />} />
         <Route path='/' element={<Form login={login} />} />
         <Route path='/home' element={<Cards onClose={onClose} characters={characters} />} />
         <Route path='/about' element={<About />} />

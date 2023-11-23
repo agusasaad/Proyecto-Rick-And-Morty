@@ -1,29 +1,21 @@
 import SearchBar from './SearchBar';
-import rickAndMortyLogo from '../../../public/img/pxfuel.png';
+import rickAndMortyLogo from '../../../public/img/logo.eab63707.png'
 import './Navbar.css';
 import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = (props) => {
     return (
         <>
-            <nav className='NavBar'>
-                <img src={rickAndMortyLogo} alt="" />
-                <div className='searchbar-container'>
-                    <SearchBar onSearch={props.onSearch} />
-                </div>
-                <div className="navbar-nav">
-                    <button onClick={props.characterRamdom} type="submit" className="buttonInput">Ramdom</button>
-                    <button className="buttonInput">
-                        <NavLink style={({ isActive }) => isActive ? { color: 'black' } : { color: 'white' }}
-                            to='/home'>Home</NavLink>
-                    </button>
-                    <button className="buttonInput">
-                        <NavLink
-                            style={({ isActive }) => isActive ? { color: 'black' } : { color: 'white' }}
-                            to='/about'>About</NavLink>
-                    </button>
-                </div>
+            <nav className='Navbar-nav'>
+            {/* <Link to='/' ><img className='img-nav' src={rickAndMortyLogo} alt="" /></Link> */}
+                <ul>
+                    <li><NavLink className='NavLink' to='/home'>Home</NavLink></li>
+                    <li><NavLink className='NavLink' to='/about'>About</NavLink></li>
+                    <li><NavLink className='NavLink' to='/favorites' >Favorites</NavLink></li>
+                </ul>
+                <SearchBar onSearch={props.onSearch} />
             </nav>
+            
         </>
     )
 }

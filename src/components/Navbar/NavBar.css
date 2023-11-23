@@ -1,40 +1,33 @@
-.NavBar {
-    width: 100%;
-    height: 60px;
+.Navbar-nav {
+    background-color: #232323;
+    width: 99%;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
+    margin-top: 10px;
 }
 
-.navbar-nav{
-    display: flex; 
+.img-nav {
+    width: 150px;
+    height: 50px;
+    margin:10px;
 }
 
-.buttonInput{
-    margin-right: 20px;
-    background-color: #3AB54A;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: .9s ease;
-}
-.searchbar-container{
-    margin-right: 150px;
+ul {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 22px;
 }
 
-.NavBar>img {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-
+li {
+    list-style: none;
 }
 
-.buttonInput:hover {
-    transform: scale(1.1);
-    color: rgb(255, 255, 255);
-    background-color: #3AB54A;
+.NavLink {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
 }
