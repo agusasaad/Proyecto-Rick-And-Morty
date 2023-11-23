@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { remove_fav } from './components/Redux/action.js';
 import axios from 'axios';
 import Cards from './components/Cards/Cards.jsx';
 import NavBar from './components/Navbar/NavBar.jsx';
@@ -8,9 +10,8 @@ import About from './components/About/About.jsx';
 import Form from './components/Form/Form.jsx';
 import Error404 from './components/Error404/Error404.jsx';
 import Favorites from './components/Favorites/Favorites.jsx';
-import { useDispatch } from 'react-redux';
-import { remove_fav } from './components/Redux/action.js';
 import ButtonRamdom from './components/ButtonRamdom/ButtonRamdom.jsx';
+import AllCharacters from './components/AllCharaters/AllCharacters.jsx';
 
 
 
@@ -90,7 +91,9 @@ function App() {
 
       {location.pathname !== '/' && <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />}
       {location.pathname === '/home' && <ButtonRamdom characterRamdom={characterRamdom}/>}
+      
       <Routes>
+        <Route path='/allCharacter' element={<AllCharacters />} />
         <Route path='/favorites' element={<Favorites onClose={onClose} />} />
         <Route path='/' element={<Form login={login} />} />
         <Route path='/home' element={<Cards onClose={onClose} characters={characters} />} />

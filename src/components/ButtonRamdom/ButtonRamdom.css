@@ -1,10 +1,10 @@
-.button_ramdom {
+.ramdom {
     display: flex;
     justify-content: end;
     margin: 10px;
 }
 
-.button_ramdom>button {
+.button_ramdom {
     background-color: #00BFA6;
     border: none;
     color: #fff;
@@ -13,4 +13,21 @@
     cursor: pointer;
     border-radius: 10px;
     border: 2px;
+}
+
+.button_allCharacters{
+    background-color: #00BFA6;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px;
+    margin-left: 6px;
+}
+
+.button_allCharacters > .Link_character {
+    text-decoration: none;
+    color: white;
 }

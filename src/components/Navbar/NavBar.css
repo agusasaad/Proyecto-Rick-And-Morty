@@ -1,17 +1,14 @@
 .Navbar-nav {
     background-color: #232323;
-    width: 99%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
-    margin-top: 10px;
 }
 
 .img-nav {
-    width: 150px;
-    height: 50px;
-    margin:10px;
+    width: 90px;
+    height: 80px;
 }
 
 ul {

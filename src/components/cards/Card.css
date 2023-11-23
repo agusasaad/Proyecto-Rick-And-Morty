@@ -44,11 +44,11 @@
     height: 10em;
 }
 
-.button {
+.button_fav {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #00bfa6ac;
+    background-color: #e82e2ed8;
     border: none;
     font-weight: 600;
     display: flex;
@@ -68,11 +68,11 @@
     fill: white;
 }
 
-.button_fav{
+.button{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #e82e2ed8;
+    background-color: #00bfa6ac;
     border: none;
     font-weight: 600;
     display: flex;

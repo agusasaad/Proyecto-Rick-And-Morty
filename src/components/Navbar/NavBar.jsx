@@ -1,5 +1,5 @@
 import SearchBar from './SearchBar';
-import rickAndMortyLogo from '../../../public/img/logo.eab63707.png'
+import rickAndMortyLogo from '../../../public/img/rick-and-morty-31006.png'
 import './Navbar.css';
 import { Link, NavLink } from 'react-router-dom'
 
