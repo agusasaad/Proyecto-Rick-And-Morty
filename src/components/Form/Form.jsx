@@ -32,17 +32,17 @@ const Form = (props) => {
     const todosCamposLlenos = Object.values(userData).every((valor) => valor !== '')
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <label >Email</label>
-                <input className={error.email && 'warning'} onChange={handleChange} value={userData.email} name='email' placeholder="Email" type='text' />
+        <div className='container'>
+            <form className='form-class' onSubmit={handleSubmit}>
+                <h2 className='title_form'>Login</h2>
+                <input id='input_form' className={error.email && 'warning'} onChange={handleChange} value={userData.email} name='email' placeholder="email" type='text' />
                 <p className='danger'>{error.email}</p>
-                <label>Password</label>
-                <input className={error.password && 'warning'} onChange={handleChange} value={userData.password} name='password' placeholder='Password' type="password" />
-                <button type='submit' disabled={!todosCamposLlenos}>Submit</button>
+                <input id='input_form' className={error.password && 'warning'} onChange={handleChange} value={userData.password} name='password' placeholder='Password' type="password" />
                 <p className='danger'>{error.password}</p>
+                <button id='input_button'type='submit' disabled={!todosCamposLlenos}>Submit</button>
+                
             </form>
-        </>
+        </div>
     )
 }
 

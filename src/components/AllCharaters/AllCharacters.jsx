@@ -11,7 +11,6 @@ const AllCharacters = () => {
     useEffect(() => {
         axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`)
             .then(({ data }) => {
-                console.log(data)
                 setAllCharacters(data.results);
                 setTotalPages(data.info.pages);
             })
@@ -25,7 +24,7 @@ const AllCharacters = () => {
     };
 
     return (
-        <>
+        <div>
             <div className='container'>
                 {allCharacters.map((character) => {
                     return (
@@ -36,6 +35,7 @@ const AllCharacters = () => {
                             status={character.status}
                             species={character.species}
                             gender={character.gender}
+                            origin={character.origin.name}
                             image={character.image}
                         />
                     )
@@ -45,7 +45,7 @@ const AllCharacters = () => {
                 <button className='buttonPagination' onClick={() => handlePageChange(page - 1)} disabled={page === 1}>Previous Page</button>
                 <button className='buttonPagination' onClick={() => handlePageChange(page + 1)} disabled={page === totalPages}>Next Page</button>
             </div>
-        </>
+    </div>
     )
 }
 

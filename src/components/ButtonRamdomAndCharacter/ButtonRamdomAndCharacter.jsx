@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './ButtonRamdom.css'
+import './ButtonRamdomAndCharacter.css'
 
 const ButtonRamdom = (props) => {
     return (

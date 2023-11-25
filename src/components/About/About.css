@@ -1,0 +1,60 @@
+.aboutMe-container {
+    display: flex;
+    justify-content: center;
+    margin:100px auto;
+}
+
+
+
+.aboutMe {
+    width: 20em;
+    height: 24.5em;
+    background: #171717;
+    transition: 1s ease-in-out;
+    clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 38px;
+}
+
+.aboutMe span {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    display: block;
+    font-size: 1em;
+}
+
+.aboutMe .info {
+    font-weight: 400;
+    color: white;
+    display: block;
+    text-align: center;
+    font-size: 0.72em;
+    margin: 1em;
+}
+
+.aboutMe .img {
+    width: 4.8em;
+    height: 4.8em;
+    border-radius: 15px;
+    margin: 10px auto;
+    border: 2px solid white;
+
+}
+
+.aboutMe .share {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.aboutMe a {
+    color: white;
+    transition: .4s ease-in-out;
+}
+
+

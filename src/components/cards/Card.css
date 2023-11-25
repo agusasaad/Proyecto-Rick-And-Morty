@@ -34,7 +34,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     bottom: 0;
-    height: 2.6em;
+    height: 2em;
     transition: height .5s ease-in-out;
     padding: 0.6em;
     overflow: hidden;

@@ -1,9 +1,9 @@
 .container{
-    width: 99%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
-    margin: 1em auto;
+    margin: 3em auto;
 }
 
 .Pagination {

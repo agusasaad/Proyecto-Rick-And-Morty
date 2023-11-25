@@ -10,7 +10,7 @@ import About from './components/About/About.jsx';
 import Form from './components/Form/Form.jsx';
 import Error404 from './components/Error404/Error404.jsx';
 import Favorites from './components/Favorites/Favorites.jsx';
-import ButtonRamdom from './components/ButtonRamdom/ButtonRamdom.jsx';
+import ButtonRamdom from './components/ButtonRamdomAndCharacter/ButtonRamdomAndCharacter.jsx';
 import AllCharacters from './components/AllCharaters/AllCharacters.jsx';
 
 

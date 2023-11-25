@@ -26,9 +26,10 @@ const reducer = (state = initialState, { type, payload }) => {
                     ...state,
                     myFavorites: state.allCharacters
                 }
+                const filter_characters = state.allCharacters.filter(character => character.gender === payload)
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(character => character.gender === payload)
+                myFavorites: filter_characters
             }
         case ORDER_CARDS:
             const orderCopy = [...state.myFavorites];
