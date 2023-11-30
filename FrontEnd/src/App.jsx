@@ -32,16 +32,16 @@ function App() {
   //Lamada a la Api Rick AND Morty
   const onSearch = (id) => {
     const characterId = characters.filter(
-      character => character.id === Number(id)
+      character => character.id === parseInt(id)
     )
     if (characterId.length) {
       return alert(`El personaje con id: ${id} ya existe`)
     }
-    axios(`https://rickandmortyapi.com/api/character/${id}?`)
-      .then(
-        ({ data }) => {
-          if (data.name) {
-            setCharacters((characters) => [...characters, data]);
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)
+    // .then((response) => console.log(response.data.nombre))
+      .then((res) => {
+          if (res.data.nombre) {
+            setCharacters((characters) => [...characters, res.data]);
           } else {
             window.alert('¡No hay personajes con este ID!');
           }
