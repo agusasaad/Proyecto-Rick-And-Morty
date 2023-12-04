@@ -10,29 +10,33 @@ const Detail = () => {
   const [character, setCharacter] = useState({})
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${params.id}`)
-    .then(
-      ( res ) => {
-        if (res.data.name) {
-          setCharacter(res.data);
-        } else {
-          window.alert('No hay personajes con ese ID');
+    const effect = async () => {
+      try {
+        let response = await axios(`http://localhost:3001/rickandmorty/character/${params.id}`)
+        let data = response.data
+        if (data.name) {
+          setCharacter(data);
         }
+      } catch (error) {
+        window.alert('No hay personajes con ese ID');
       }
-    );
+    }
+    effect()
     return setCharacter({});
   }, [params.id]);
+
+
 
   return (
     <div className="conteiner-detail">
       <div className="card-detail" key={character.id}>
-      <img className='img-detail' src={character.image} alt='imagen de rick'/>
-      <h2 className='h2-detail'>{character.name}</h2>
-      <div className="caracteristicas">
-      <p className='p-detail'>Status: {character.status}</p>
-      <p className='p-detail'>Species: {character.species}</p>
-      <p className='p-detail'>Gender: {character.gender}</p>
-      </div>
+        <img className='img-detail' src={character.image} alt='imagen de rick' />
+        <h2 className='h2-detail'>{character.name}</h2>
+        <div className="caracteristicas">
+          <p className='p-detail'>Status: {character.status}</p>
+          <p className='p-detail'>Species: {character.species}</p>
+          <p className='p-detail'>Gender: {character.gender}</p>
+        </div>
       </div>
     </div>
   )

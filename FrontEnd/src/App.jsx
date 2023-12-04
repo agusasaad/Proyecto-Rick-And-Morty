@@ -24,35 +24,47 @@ function App() {
   const [characters, setCharacters] = useState([])
 
   //Lamada a la Api Rick AND Morty
-  const onSearch = (id) => {
-    const characterId = characters.filter(
-      character => character.id === parseInt(id)
-    )
-    if (characterId.length) {
-      return alert(`El personaje con id: ${id} ya existe`)
-    }
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((res) => {
-        if (res.data.name) {
-          setCharacters((characters) => [...characters, res.data]);
-        } else {
-          window.alert('¡No hay personajes con este ID!');
-        }
+  const onSearch = async (id) => {
+    try {
+      const characterId = characters.filter(
+        character => character.id === parseInt(id)
+      )
+      if (characterId.length) {
+        return alert(`El personaje con id: ${id} ya existe`)
       }
-      );
+      let response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      let data = response.data
+
+      if (data.name) {
+        setCharacters((characters) => [...characters, data])
+      }
+    } catch (error) {
+      window.alert('¡No hay personajes con este ID!');
+    }
+
   }
 
   //Agrega un personaje ramdom
-  const characterRamdom = () => {
-    let idRamdom = Math.ceil(Math.random() * 826)
-    axios(`https://rickandmortyapi.com/api/character/${idRamdom}?`)
-      .then(
-        ({ data }) => {
-          if (data.name) {
-            setCharacters((characters) => [...characters, data]);
-          }
-        }
-      );
+  const characterRamdom = async () => {
+    try {
+      let idRamdom = Math.ceil(Math.random() * 826)
+
+      const characterId = characters.filter(
+        character => character.id === idRamdom
+      )
+      if (characterId.length) {
+        return alert(`El personaje con id: ${id} ya existe`)
+      }
+
+      let response = await axios(`https://rickandmortyapi.com/api/character/${idRamdom}?`)
+      let data = response.data
+      if (data.name) {
+        setCharacters((characters) => [...characters, data]);
+      }
+    } catch (error) {
+      return new Error(error)
+    }
+
   }
 
   //Borra la Card por ID 'x'
@@ -60,7 +72,7 @@ function App() {
 
   const onClose = (id) => {
     setCharacters(
-      characters.filter((character) =>  character.id !== parseInt(id)))
+      characters.filter((character) => character.id !== parseInt(id)))
     dispatch(remove_fav(id))
   }
 
@@ -70,20 +82,26 @@ function App() {
   const [access, setAccess] = useState(false)
   const Navigate = useNavigate()
 
-  function login(userData) {
+  const login = async (userData) => {
     const { email, password } = userData;
     const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+
+    try {
+      let response = await axios(URL + `?email=${email}&password=${password}`)
+      let data = response.data
       const { access } = data;
-      if(access){
+      if (access) {
         setAccess(data);
-      access && Navigate('/home');
+        access && Navigate('/home');
       } else {
-        alert('email o usuario incorrectos')
+        return alert('email o usuario incorrectos')
       }
       
-    });
+    } catch (error) {
+      return new Error({message : 'email o usuario incorrectos'})
+    }
   }
+
   useEffect(() => {
     !access && Navigate('/');
   }, [access]);

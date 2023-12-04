@@ -32,8 +32,8 @@ export default function Card(props) {
    }
 
    useEffect(() => {
-      myFavorites.forEach((isfav) => {
-         if (isfav.id === props.id) {
+      myFavorites.forEach((fav) => {
+         if (fav.id === props.id) {
             setIsFav(true);
          }
       });
