@@ -22,13 +22,7 @@ function App() {
 
   //Setea los personajes
   const [characters, setCharacters] = useState([])
-  
-  //Login
-  const [access, setAccess] = useState(false)
-  const EMAIL = 'agusasaad1099@hotmail.com';
-  const PASSWORD = '123123'
-  const Navigate = useNavigate()
-  
+
   //Lamada a la Api Rick AND Morty
   const onSearch = (id) => {
     const characterId = characters.filter(
@@ -38,14 +32,13 @@ function App() {
       return alert(`El personaje con id: ${id} ya existe`)
     }
     axios(`http://localhost:3001/rickandmorty/character/${id}`)
-    // .then((response) => console.log(response.data.nombre))
       .then((res) => {
-          if (res.data.nombre) {
-            setCharacters((characters) => [...characters, res.data]);
-          } else {
-            window.alert('¡No hay personajes con este ID!');
-          }
+        if (res.data.name) {
+          setCharacters((characters) => [...characters, res.data]);
+        } else {
+          window.alert('¡No hay personajes con este ID!');
         }
+      }
       );
   }
 
@@ -64,22 +57,33 @@ function App() {
 
   //Borra la Card por ID 'x'
   const dispatch = useDispatch()
+
   const onClose = (id) => {
     setCharacters(
-      characters?.filter((character) => {return character.id !== parseInt(id)}))
-      dispatch(remove_fav(id))
-    }
+      characters.filter((character) =>  character.id !== parseInt(id)))
+    dispatch(remove_fav(id))
+  }
 
 
 
   //funcion login 
-  function login(userData) {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      Navigate('/home');
-    }
-  }
+  const [access, setAccess] = useState(false)
+  const Navigate = useNavigate()
 
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      if(access){
+        setAccess(data);
+      access && Navigate('/home');
+      } else {
+        alert('email o usuario incorrectos')
+      }
+      
+    });
+  }
   useEffect(() => {
     !access && Navigate('/');
   }, [access]);
@@ -90,8 +94,8 @@ function App() {
     <div className='App'>
 
       {location.pathname !== '/' && <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />}
-      {location.pathname === '/home' && <ButtonRamdom characterRamdom={characterRamdom}/>}
-      
+      {location.pathname === '/home' && <ButtonRamdom characterRamdom={characterRamdom} />}
+
       <Routes>
         <Route path='/allCharacter' element={<AllCharacters />} />
         <Route path='/favorites' element={<Favorites onClose={onClose} />} />

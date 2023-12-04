@@ -7,7 +7,7 @@
 
 .card-detail{
     width: 450px;
-    height: 550px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     border-top-right-radius: 60px;
@@ -25,7 +25,7 @@
 
 .h2-detail{
     color: white;
-    font-size: 50px;
+    font-size: 45px;
     text-align: center;
 }
 

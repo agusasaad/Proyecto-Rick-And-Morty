@@ -13,7 +13,7 @@ const Detail = () => {
     axios(`http://localhost:3001/rickandmorty/character/${params.id}`)
     .then(
       ( res ) => {
-        if (res.data.nombre) {
+        if (res.data.name) {
           setCharacter(res.data);
         } else {
           window.alert('No hay personajes con ese ID');
