@@ -25,7 +25,7 @@ const AllCharacters = () => {
 
     return (
         <div>
-            <div className='container'>
+            <div className='container-cards'>
                 {allCharacters.map((character) => {
                     return (
                         <Card

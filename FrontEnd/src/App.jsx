@@ -12,6 +12,7 @@ import Error404 from './components/Error404/Error404.jsx';
 import Favorites from './components/Favorites/Favorites.jsx';
 import ButtonRamdom from './components/ButtonRamdomAndCharacter/ButtonRamdomAndCharacter.jsx';
 import AllCharacters from './components/AllCharaters/AllCharacters.jsx';
+import HomePage from './components/HomePage/HomePage.jsx';
 
 
 
@@ -32,8 +33,7 @@ function App() {
       if (characterId.length) {
         return alert(`El personaje con id: ${id} ya existe`)
       }
-      let response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      let data = response.data
+      const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
 
       if (data.name) {
         setCharacters((characters) => [...characters, data])
@@ -56,8 +56,7 @@ function App() {
         return alert(`El personaje con id: ${id} ya existe`)
       }
 
-      let response = await axios(`https://rickandmortyapi.com/api/character/${idRamdom}?`)
-      let data = response.data
+      const {data} = await axios(`https://rickandmortyapi.com/api/character/${idRamdom}?`)
       if (data.name) {
         setCharacters((characters) => [...characters, data]);
       }
@@ -87,8 +86,8 @@ function App() {
     const URL = 'http://localhost:3001/rickandmorty/login/';
 
     try {
-      let response = await axios(URL + `?email=${email}&password=${password}`)
-      let data = response.data
+      const {data} = await axios(URL + `?email=${email}&password=${password}`)
+
       const { access } = data;
       if (access) {
         setAccess(data);
@@ -110,14 +109,14 @@ function App() {
 
   return (
     <div className='App'>
-
-      {location.pathname !== '/' && <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />}
+      {location.pathname !== '/' && location.pathname !== '/login' && <NavBar characterRamdom={characterRamdom} onSearch={onSearch} />}
       {location.pathname === '/home' && <ButtonRamdom characterRamdom={characterRamdom} />}
 
       <Routes>
+        <Route path='/' element={<HomePage />} />
         <Route path='/allCharacter' element={<AllCharacters />} />
         <Route path='/favorites' element={<Favorites onClose={onClose} />} />
-        <Route path='/' element={<Form login={login} />} />
+        <Route path='/login' element={<Form login={login} />} />
         <Route path='/home' element={<Cards onClose={onClose} characters={characters} />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail />} />

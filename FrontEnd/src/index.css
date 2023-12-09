@@ -1,4 +1,6 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@500&family=Roboto:wght@300&display=swap');
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,12 +8,9 @@
 
 
 body {
-  background-image: url('../../../public/img/fondo.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100%;
   font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
-
-

@@ -15,7 +15,8 @@ const Favorites = ({ onClose }) => {
     dispatch(filter_cards(event.target.value))
   }
 
-  return (<div>
+  return (
+  <div className="container-favorites">
     <div className="select-container">
         <select name="order" onChange={handleOrder}>
           <option className='option' value="A">Ascendente</option>
@@ -30,7 +31,7 @@ const Favorites = ({ onClose }) => {
           
         </select>
     </div>
-    <div className='Cards-container'>
+    <div className='Cards_favorites'>
       {myFavorites.map((myFavorite) => {
         return (
           <Card

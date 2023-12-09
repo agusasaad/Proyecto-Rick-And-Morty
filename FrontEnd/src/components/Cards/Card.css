@@ -40,6 +40,14 @@
     overflow: hidden;
 }
 
+.more {
+    text-decoration: none;
+    background-color: rgb(96, 224, 96);
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
 .card:hover>.details {
     height: 10em;
 }

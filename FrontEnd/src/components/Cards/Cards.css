@@ -1,6 +1,7 @@
 .Cards-container{
+    width: 100%;
     display: flex;
-    flex-flow:wrap ;
+    flex-flow:wrap-reverse ;
     justify-content: center;
     margin-bottom: 30px;
 }

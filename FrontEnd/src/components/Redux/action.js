@@ -8,8 +8,7 @@ export const add_fav = (character) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav';
     return async (dispatch) => {
         try {
-            const response = await axios.post(endpoint, character)
-            let data = response.data
+            const {data} = await axios.post(endpoint, character)
             return dispatch({
                 type: ADD_FAV,
                 payload: data,
@@ -25,8 +24,7 @@ export const remove_fav = (id) => {
 
     return async (dispatch) => {
         try {
-            const response = await axios.delete(endpoint)
-            const data = response.data
+            const {data} = await axios.delete(endpoint)
             return dispatch({
                 type: REMOVE_FAV,
                 payload: data,

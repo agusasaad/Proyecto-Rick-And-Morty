@@ -12,8 +12,8 @@ const Detail = () => {
   useEffect(() => {
     const effect = async () => {
       try {
-        let response = await axios(`http://localhost:3001/rickandmorty/character/${params.id}`)
-        let data = response.data
+        const {data} = await axios(`http://localhost:3001/rickandmorty/character/${params.id}`)
+
         if (data.name) {
           setCharacter(data);
         }

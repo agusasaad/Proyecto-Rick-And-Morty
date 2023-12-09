@@ -65,7 +65,8 @@ export default function Card(props) {
                <br />
                Origin: {props.origin}
                <br/>
-               <Link to={`/detail/${props.id}`} >More</Link>
+               <br/>
+               <Link to={`/detail/${props.id}`} className='more' >Detail</Link>
             </p>
          </div>
       </div>

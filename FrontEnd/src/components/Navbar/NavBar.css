@@ -6,9 +6,11 @@
     align-items: center;
 }
 
-.img-nav {
-    width: 90px;
-    height: 80px;
+.logo{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 ul {

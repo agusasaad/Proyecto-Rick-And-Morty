@@ -1,0 +1,20 @@
+.Navbar-HomePage{
+    width: 90%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.logo-homepage{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    margin-top: 20x;
+}
+
+.ulHomePage{
+    display: flex;
+    justify-content: end;
+}
