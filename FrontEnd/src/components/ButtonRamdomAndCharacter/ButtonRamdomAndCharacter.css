@@ -5,7 +5,7 @@
 }
 
 .button_ramdom {
-    background-color: #00BFA6;
+    background-color: rgb(13, 206, 119);
     border: none;
     color: #fff;
     cursor: pointer;
@@ -16,7 +16,7 @@
 }
 
 .button_allCharacters{
-    background-color: #00BFA6;
+    background-color: rgb(13, 206, 119);
     border: none;
     color: #fff;
     cursor: pointer;

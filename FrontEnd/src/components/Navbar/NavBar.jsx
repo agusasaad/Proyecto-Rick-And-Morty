@@ -6,7 +6,7 @@ const NavBar = (props) => {
     return (
         <>
             <nav className='Navbar-nav'>
-            <Link className='logo' to='/' ><span>Rick & Morty </span>| <span style={{color: 'rgb(33, 236, 33)'}}> API</span></Link>
+            <Link className='logo' to='/' ><span>Rick & Morty </span>| <span> APP</span></Link>
                 <ul>
                     <li><Link className='NavLink' to='/home'>Home</Link></li>
                     <li><Link className='NavLink' to='/about'>About</Link></li>

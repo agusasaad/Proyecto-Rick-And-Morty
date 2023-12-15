@@ -9,18 +9,19 @@
 
 .Pagination {
     display: flex;
-    width: 20%;
+    width: 60%;
     justify-content: space-around;
     margin: 3em auto;
 }
 
 .buttonPagination{
+    width: 60%;
     background-color: #00BFA6;
     border: none;
     color: #fff;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 15px 20px;
     cursor: pointer;
     border-radius: 10px;
-    border: 2px;
+    margin: 10px;
 }

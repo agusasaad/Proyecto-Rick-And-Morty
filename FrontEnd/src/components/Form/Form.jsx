@@ -52,6 +52,7 @@ const Form = (props) => {
                         placeholder="Email"
                         name="email"
                         type="text"
+                        autoComplete='false'
                         className={error.email && 'warning'}
                     />
                 </div>

@@ -13,6 +13,7 @@ import Favorites from './components/Favorites/Favorites.jsx';
 import ButtonRamdom from './components/ButtonRamdomAndCharacter/ButtonRamdomAndCharacter.jsx';
 import AllCharacters from './components/AllCharaters/AllCharacters.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
+import Spinner from './components/Spinner/Spinner.jsx';
 
 
 
@@ -113,6 +114,7 @@ function App() {
       {location.pathname === '/home' && <ButtonRamdom characterRamdom={characterRamdom} />}
 
       <Routes>
+      <Route path='/spinner' element={<Spinner />} />
         <Route path='/' element={<HomePage />} />
         <Route path='/allCharacter' element={<AllCharacters />} />
         <Route path='/favorites' element={<Favorites onClose={onClose} />} />
